@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "carts",
+  "info": {
+    "name": "Cart",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "dateCreate": {
+      "type": "datetime"
+    },
+    "dateUpdate": {
+      "type": "datetime"
+    },
+    "addressWalletCustomer": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
