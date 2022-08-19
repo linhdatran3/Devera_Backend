@@ -12,19 +12,17 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "users_permissions_user": {
-      "plugin": "users-permissions",
-      "model": "user"
-    },
     "dateCreate": {
       "type": "datetime"
     },
     "dateUpdate": {
       "type": "datetime"
     },
-    "addressWalletCustomer": {
-      "type": "string",
-      "required": true
+    "account": {
+      "model": "account"
+    },
+    "product": {
+      "model": "product"
     }
   }
 }

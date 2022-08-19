@@ -34,7 +34,7 @@
       "required": true,
       "pluginOptions": {}
     },
-    "isValidate": {
+    "isStock": {
       "type": "boolean",
       "default": true,
       "required": true
@@ -44,12 +44,8 @@
       "via": "products",
       "dominant": true
     },
-    "typePassword": {
-      "type": "password"
-    },
-    "users_permissions_user": {
-      "plugin": "users-permissions",
-      "model": "user"
+    "account": {
+      "model": "account"
     }
   }
 }

@@ -54,7 +54,18 @@ const DEFAULT_PERMISSIONS = [
     type: "users-permissions",
     roleType: null,
   },
-
+  {
+    action: "getroles",
+    controller: "userspermissions",
+    type: null,
+    roleType: null,
+  },
+  {
+    action: "getrole",
+    controller: "userspermissions",
+    type: null,
+    roleType: null,
+  },
   {
     action: "init",
     controller: "userspermissions",
@@ -95,5 +106,9 @@ const DEFAULT_PERMISSIONS = [
   { action: "create", controller: "store", type: null, roleType: "vendor" },
   { action: "update", controller: "store", type: null, roleType: "vendor" },
   { action: "delete", controller: "store", type: null, roleType: "vendor" },
+
+  //acount
+  { action: "create", controller: "account", type: null, roleType: null },
+
 ];
 module.exports = { DEFAULT_PERMISSIONS };
