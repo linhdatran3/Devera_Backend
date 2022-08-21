@@ -43,6 +43,10 @@
       "collection": "category",
       "via": "products",
       "dominant": true
+    },
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

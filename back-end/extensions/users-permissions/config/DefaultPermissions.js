@@ -77,7 +77,13 @@ const DEFAULT_PERMISSIONS = [
     action: "update",
     controller: "user",
     type: "users-permissions",
-    roleType: null,
+    roleType: "customer",
+  },
+  {
+    action: "update",
+    controller: "user",
+    type: "users-permissions",
+    roleType: "vendor",
   },
 
   //model:user permissions
