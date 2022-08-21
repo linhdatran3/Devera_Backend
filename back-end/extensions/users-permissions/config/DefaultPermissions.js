@@ -34,7 +34,7 @@ const DEFAULT_PERMISSIONS = [
     action: "register",
     controller: "auth",
     type: "users-permissions",
-    roleType: "public",
+    roleType: null,
   },
   {
     action: "emailconfirmation",
@@ -48,12 +48,39 @@ const DEFAULT_PERMISSIONS = [
     type: "users-permissions",
     roleType: "public",
   },
+  //model: user
   {
     action: "me",
     controller: "user",
     type: "users-permissions",
     roleType: null,
   },
+  {
+    action: "find",
+    controller: "user",
+    type: "users-permissions",
+    roleType: null,
+  },
+  {
+    action: "findone",
+    controller: "user",
+    type: "users-permissions",
+    roleType: null,
+  },
+  {
+    action: "findbyaddress",
+    controller: "user",
+    type: "users-permissions",
+    roleType: null,
+  },
+  {
+    action: "update",
+    controller: "user",
+    type: "users-permissions",
+    roleType: null,
+  },
+
+  //model:user permissions
   {
     action: "getroles",
     controller: "userspermissions",
@@ -78,8 +105,18 @@ const DEFAULT_PERMISSIONS = [
   //upload
   { action: "find", controller: "upload", type: "upload", roleType: null },
   { action: "findone", controller: "upload", type: "upload", roleType: null },
-  { action: "upload", controller: "upload", type: "upload", roleType: "vendor" },
-  { action: "destroy", controller: "upload", type: "upload", roleType: "vendor" },
+  {
+    action: "upload",
+    controller: "upload",
+    type: "upload",
+    roleType: "vendor",
+  },
+  {
+    action: "destroy",
+    controller: "upload",
+    type: "upload",
+    roleType: "vendor",
+  },
 
   //product
   {
@@ -109,6 +146,5 @@ const DEFAULT_PERMISSIONS = [
 
   //acount
   { action: "create", controller: "account", type: null, roleType: null },
-
 ];
 module.exports = { DEFAULT_PERMISSIONS };

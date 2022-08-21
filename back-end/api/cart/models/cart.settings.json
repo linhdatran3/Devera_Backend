@@ -18,9 +18,6 @@
     "dateUpdate": {
       "type": "datetime"
     },
-    "account": {
-      "model": "account"
-    },
     "product": {
       "model": "product"
     }

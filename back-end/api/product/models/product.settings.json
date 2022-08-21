@@ -43,9 +43,6 @@
       "collection": "category",
       "via": "products",
       "dominant": true
-    },
-    "account": {
-      "model": "account"
     }
   }
 }

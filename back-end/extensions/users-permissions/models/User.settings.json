@@ -14,14 +14,12 @@
       "type": "string",
       "minLength": 3,
       "unique": true,
-      "configurable": false,
-      "required": true
+      "configurable": false
     },
     "email": {
       "type": "email",
       "minLength": 6,
-      "configurable": false,
-      "required": true
+      "configurable": false
     },
     "provider": {
       "type": "string",
@@ -57,10 +55,12 @@
       "model": "role",
       "via": "users",
       "plugin": "users-permissions",
-      "configurable": false
+      "configurable": false,
+      "default": 6
     },
-    "addressWallet": {
-      "type": "string"
+    "walletAddress": {
+      "type": "string",
+      "unique": true
     },
     "carts": {
       "collection": "cart"
