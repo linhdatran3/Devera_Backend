@@ -17,6 +17,7 @@ module.exports = {
       entities = await strapi.services.cart.find(ctx.query);
     }
     const listCart = [];
+    console.log(id);
     entities.map((entity) => {
       sanitizeEntity(entity, { model: strapi.models.cart });
       if (entity.users_permissions_user.id === parseInt(id)) {

@@ -1,7 +1,7 @@
 "use strict";
 
 const _ = require("lodash");
-const { sanitizeEntity } = require("strapi-utils");
+const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
 
 const sanitizeUser = (user) =>
   sanitizeEntity(user, {
@@ -97,22 +97,22 @@ module.exports = {
    */
 
   async update(ctx) {
-    const advancedConfigs = await strapi
-      .store({
-        environment: "",
-        type: "plugin",
-        name: "users-permissions",
-        key: "advanced",
-      })
-      .get();
+    // const advancedConfigs = await strapi
+    //   .store({
+    //     environment: "",
+    //     type: "plugin",
+    //     name: "users-permissions",
+    //     key: "advanced",
+    //   })
+    //   .get();
 
     const { id } = ctx.params;
     //const { email, username, password } = ctx.request.body;
 
-    const user = await strapi.plugins["users-permissions"].services.user.fetch({
-      id,
-    });
-  
+    // const user = await strapi.plugins["users-permissions"].services.user.fetch({
+    //   id,
+    // });
+
     // if (_.has(ctx.request.body, 'email') && !email) {
     //   return ctx.badRequest('email.notNull');
     // }
@@ -160,19 +160,34 @@ module.exports = {
     //   ctx.request.body.email = ctx.request.body.email.toLowerCase();
     // }
 
-    let updateData = {
-      ...ctx.request.body,
-    };
-    
+    // let updateData = {
+    //   ...ctx.request.body,
+    // };
+    // console.log(updateData)
+
+    let entity;
+    if (ctx.is("multipart")) {
+      const { data, files } = parseMultipartData(ctx);
+      entity = await strapi.plugins["users-permissions"].services.user.edit(
+        { id },
+        data,
+        { files }
+      );
+    } else {
+      entity = await strapi.plugins["users-permissions"].services.user.edit(
+        { id },
+        ...ctx.request.body
+      );
+    }
     // if (_.has(ctx.request.body, 'password') && password === user.password) {
     //   delete updateData.password;
     // }
 
-    const data = await strapi.plugins["users-permissions"].services.user.edit(
-      { id },
-      updateData
-    );
+    // const data = await strapi.plugins["users-permissions"].services.user.edit(
+    //   { id },
+    //   updateData
+    // );
 
-    ctx.send(sanitizeUser(data));
+    ctx.send(sanitizeUser(entity));
   },
 };
