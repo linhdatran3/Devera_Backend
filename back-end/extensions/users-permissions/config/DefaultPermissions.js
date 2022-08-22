@@ -142,15 +142,20 @@ const DEFAULT_PERMISSIONS = [
   { action: "find", controller: "category", type: null, roleType: null },
   { action: "findone", controller: "category", type: null, roleType: null },
 
-  //store
-  { action: "find", controller: "store", type: null, roleType: null },
-  { action: "findone", controller: "store", type: null, roleType: null },
-  { action: "count", controller: "store", type: null, roleType: null },
-  { action: "create", controller: "store", type: null, roleType: "vendor" },
-  { action: "update", controller: "store", type: null, roleType: "vendor" },
-  { action: "delete", controller: "store", type: null, roleType: "vendor" },
+  // //store
+  // { action: "find", controller: "store", type: null, roleType: null },
+  // { action: "findone", controller: "store", type: null, roleType: null },
+  // { action: "count", controller: "store", type: null, roleType: null },
+  // { action: "create", controller: "store", type: null, roleType: "vendor" },
+  // { action: "update", controller: "store", type: null, roleType: "vendor" },
+  // { action: "delete", controller: "store", type: null, roleType: "vendor" },
 
   //acount
   { action: "create", controller: "account", type: null, roleType: null },
+  //cart
+  { action: "create", controller: "cart", type: null, roleType: "customer" },
+  { action: "create", controller: "cart", type: null, roleType: "vendor" },
+  { action: "historyshoppingcart", controller: "cart", type: null, roleType: "customer" },
+  { action: "historyshoppingcart", controller: "cart", type: null, roleType: "vendor" },
 ];
 module.exports = { DEFAULT_PERMISSIONS };

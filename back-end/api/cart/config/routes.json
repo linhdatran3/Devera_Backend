@@ -25,6 +25,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/carts/user/:id",
+      "handler": "cart.historyShoppingCart",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/carts",
       "handler": "cart.create",

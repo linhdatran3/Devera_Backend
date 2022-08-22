@@ -53,5 +53,5 @@ module.exports = {
       data = sanitizeUser(data);
     }
     ctx.body = data;
-  },
+  }
 };

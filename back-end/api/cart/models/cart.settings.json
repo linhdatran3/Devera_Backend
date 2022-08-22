@@ -12,14 +12,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "dateCreate": {
-      "type": "datetime"
-    },
-    "dateUpdate": {
-      "type": "datetime"
-    },
     "product": {
       "model": "product"
+    },
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "total": {
+      "type": "float"
     }
   }
 }
