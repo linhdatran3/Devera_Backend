@@ -14,7 +14,7 @@ module.exports = {
     } else {
       entities = await strapi.services.product.find(ctx.query);
     }
-    console.log(entities);
+    //console.log(entities);
     return entities.map((entity) =>
       sanitizeEntity(entity, { model: strapi.models.product })
     );
@@ -23,7 +23,7 @@ module.exports = {
     const record = await strapi
       .query("product")
       .findOne({ id: Number(ctx.params.id) });
-    console.log("RECORD: ", record);
+    //console.log("RECORD: ", record);
     return sanitizeEntity(record, { model: strapi.models.product });
   },
   async findById12(ctx) {
@@ -44,11 +44,30 @@ module.exports = {
       const { data, files } = parseMultipartData(ctx);
       //console.log("parse");
       entity = await strapi.services.product.create(data, { files });
-     
     } else {
       entity = await strapi.services.product.create(ctx.request.body);
     }
     console.log(sanitizeEntity(entity, { model: strapi.models.product }));
     return sanitizeEntity(entity, { model: strapi.models.product });
+  },
+  async getListProductsUserCreated(ctx) {
+    const { id } = ctx.params;
+    let entities = [];
+    const listProducts = [];
+    if (ctx.query._q) {
+      entities = await strapi.services.product.search(ctx.query);
+    } else {
+      entities = await strapi.services.product.find(ctx.query);
+    }
+    // console.log(entities);
+    entities.map((entity) => {
+      sanitizeEntity(entity, { model: strapi.models.product });
+      if (entity.created_by_user.id === parseInt(id)) {
+        listProducts.push(entity);
+      }
+    });
+    return listProducts.map((item) =>
+      sanitizeEntity(item, { model: strapi.models.product })
+    );
   },
 };

@@ -34,19 +34,29 @@
       "required": true,
       "pluginOptions": {}
     },
-    "isStock": {
+    "status": {
       "type": "boolean",
-      "default": true,
-      "required": true
+      "required": true,
+      "default": false
     },
     "categories": {
       "collection": "category",
       "via": "products",
       "dominant": true
     },
-    "users_permissions_user": {
+    "created_by_user": {
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "owners_by": {
+      "type": "json"
+    },
+    "num_owners": {
+      "type": "integer",
+      "default": 1
+    },
+    "transaction_hash": {
+      "type": "json"
     }
   }
 }

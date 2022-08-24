@@ -26,6 +26,14 @@
     },
     {
       "method": "GET",
+      "path": "/products/getlistcreated/:id",
+      "handler": "product.getListProductsUserCreated",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/products/findbyid12/:id",
       "handler": "product.findById12",
       "config": {

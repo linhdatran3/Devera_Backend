@@ -15,12 +15,18 @@
     "product": {
       "model": "product"
     },
-    "users_permissions_user": {
+    "new_owner": {
       "plugin": "users-permissions",
       "model": "user"
     },
     "total": {
       "type": "float"
+    },
+    "service_charge": {
+      "type": "float"
+    },
+    "last_owners": {
+      "type": "json"
     }
   }
 }
