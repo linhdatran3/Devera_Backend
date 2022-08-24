@@ -138,7 +138,8 @@ const DEFAULT_PERMISSIONS = [
   { action: "update", controller: "product", type: null, roleType: "vendor" },
   { action: "delete", controller: "product", type: null, roleType: "vendor" },
   { action: "getlistproductsusercreated", controller: "product", type: null, roleType: "vendor" },
-
+  { action: "getlistproductsuserown", controller: "product", type: null, roleType: "vendor" },
+  
   //category
   { action: "find", controller: "category", type: null, roleType: null },
   { action: "findone", controller: "category", type: null, roleType: null },

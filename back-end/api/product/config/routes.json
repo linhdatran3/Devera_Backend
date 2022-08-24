@@ -34,6 +34,14 @@
     },
     {
       "method": "GET",
+      "path": "/products/getlistown/:address",
+      "handler": "product.getListProductsUserOwn",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/products/findbyid12/:id",
       "handler": "product.findById12",
       "config": {

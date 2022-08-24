@@ -60,12 +60,55 @@ module.exports = {
       entities = await strapi.services.product.find(ctx.query);
     }
     // console.log(entities);
-    entities.map((entity) => {
+   await entities.map((entity) => {
       sanitizeEntity(entity, { model: strapi.models.product });
       if (entity.created_by_user.id === parseInt(id)) {
         listProducts.push(entity);
       }
     });
+    return listProducts.map((item) =>
+      sanitizeEntity(item, { model: strapi.models.product })
+    );
+  },
+  async getCurrentOwner(list, num) {
+    switch (num) {
+      case 1:
+        return list?.num1;
+      case 2:
+        return list?.num2;
+      case 3:
+        return list?.num3;
+      case 4:
+        return list?.num4;
+      case 5:
+        return list?.num5;
+      case 6:
+        return list?.num6;
+      default:
+      // code block
+    }
+  },
+  async getListProductsUserOwn(ctx) {
+    const { address } = ctx.params;
+    let entities = [];
+    let listProducts = [];
+    if (ctx.query._q) {
+      entities = await strapi.services.product.search(ctx.query);
+    } else {
+      entities = await strapi.services.product.find(ctx.query);
+    }
+    // console.log(entities);
+   await entities.map((entity) => {
+      sanitizeEntity(entity, { model: strapi.models.product });
+      this.getCurrentOwner(entity.owners_by, entity.num_owners).then((res) => {
+        console.log("res "+res);
+        console.log("address " +address);
+        if (res === address) {
+          listProducts.push(entity);
+        }
+      });
+    });
+    console.log("list products: "+listProducts)
     return listProducts.map((item) =>
       sanitizeEntity(item, { model: strapi.models.product })
     );
