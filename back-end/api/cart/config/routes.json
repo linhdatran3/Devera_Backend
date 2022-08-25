@@ -26,6 +26,14 @@
     },
     {
       "method": "GET",
+      "path": "/carts/historyPrice/:proId",
+      "handler": "cart.historyPriceOfProduct",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/carts/user/:id",
       "handler": "cart.historyShoppingCart",
       "config": {

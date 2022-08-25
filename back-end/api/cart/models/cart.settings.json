@@ -27,6 +27,10 @@
     },
     "last_owners": {
       "type": "json"
+    },
+    "num_owners": {
+      "type": "integer",
+      "default": 0
     }
   }
 }

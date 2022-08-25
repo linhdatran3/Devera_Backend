@@ -28,7 +28,6 @@ module.exports = {
   },
   async findById12(ctx) {
     let entity;
-    console.log("ok");
     if (ctx.query._q) {
       entity = await strapi.services.product.search(ctx.query);
     } else {
@@ -39,15 +38,13 @@ module.exports = {
   async create(ctx) {
     let entity;
     if (ctx.is("multipart")) {
-      console.log("multipart");
-      console.log(ctx);
+
       const { data, files } = parseMultipartData(ctx);
       //console.log("parse");
       entity = await strapi.services.product.create(data, { files });
     } else {
       entity = await strapi.services.product.create(ctx.request.body);
     }
-    console.log(sanitizeEntity(entity, { model: strapi.models.product }));
     return sanitizeEntity(entity, { model: strapi.models.product });
   },
   async getListProductsUserCreated(ctx) {
@@ -97,18 +94,15 @@ module.exports = {
     } else {
       entities = await strapi.services.product.find(ctx.query);
     }
-    // console.log(entities);
+    //console.log(entities);
    await entities.map((entity) => {
       sanitizeEntity(entity, { model: strapi.models.product });
       this.getCurrentOwner(entity.owners_by, entity.num_owners).then((res) => {
-        console.log("res "+res);
-        console.log("address " +address);
         if (res === address) {
           listProducts.push(entity);
         }
       });
     });
-    console.log("list products: "+listProducts)
     return listProducts.map((item) =>
       sanitizeEntity(item, { model: strapi.models.product })
     );
