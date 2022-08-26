@@ -26,19 +26,22 @@ npm install
 
 ## Usage
 
-> Users_permission_user
+**Role: customer**
+**Products**
 
--
+- list all product are sell
+  > GET: /products
+- get a item
+  > GET: /products/:id
+- get a item
+  > GET: /products/:id
+- get list product which user created:
+  > GET: /products/getlistcreated/:id
+- get list product which user is own (include product: create, buy).
+  > GET: /products/getlistown/:id
 
-> Products
-
-- get list all products are sell
-
-```
-GET: /products
-```
-
-> Carts
+**Carts**
+**Users**
 
 ## Contributing
 
