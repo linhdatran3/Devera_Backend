@@ -137,9 +137,19 @@ const DEFAULT_PERMISSIONS = [
   { action: "create", controller: "product", type: null, roleType: "vendor" },
   { action: "update", controller: "product", type: null, roleType: "vendor" },
   { action: "delete", controller: "product", type: null, roleType: "vendor" },
-  { action: "getlistproductsusercreated", controller: "product", type: null, roleType: "vendor" },
-  { action: "getlistproductsuserown", controller: "product", type: null, roleType: "vendor" },
-  
+  {
+    action: "getlistproductsusercreated",
+    controller: "product",
+    type: null,
+    roleType: "vendor",
+  },
+  {
+    action: "getlistproductsuserown",
+    controller: "product",
+    type: null,
+    roleType: "vendor",
+  },
+
   //category
   { action: "find", controller: "category", type: null, roleType: null },
   { action: "findone", controller: "category", type: null, roleType: null },
@@ -157,7 +167,37 @@ const DEFAULT_PERMISSIONS = [
   //cart
   { action: "create", controller: "cart", type: null, roleType: "customer" },
   { action: "create", controller: "cart", type: null, roleType: "vendor" },
-  { action: "historyshoppingcart", controller: "cart", type: null, roleType: "customer" },
-  { action: "historyshoppingcart", controller: "cart", type: null, roleType: "vendor" },
+  { action: "find", controller: "cart", type: null, roleType: "customer" },
+  { action: "find", controller: "cart", type: null, roleType: "vendor" },
+  {
+    action: "historyshoppingcart",
+    controller: "cart",
+    type: null,
+    roleType: "customer",
+  },
+  {
+    action: "historyshoppingcart",
+    controller: "cart",
+    type: null,
+    roleType: "vendor",
+  },
+  {
+    action: "historypriceofproduct",
+    controller: "cart",
+    type: null,
+    roleType: null,
+  },
+  {
+    action: "historytransactionofuser",
+    controller: "cart",
+    type: null,
+    roleType: "customer",
+  },
+  {
+    action: "historytransactionofuser",
+    controller: "cart",
+    type: null,
+    roleType: "vendor",
+  },
 ];
 module.exports = { DEFAULT_PERMISSIONS };

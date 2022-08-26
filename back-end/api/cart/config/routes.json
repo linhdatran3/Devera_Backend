@@ -41,6 +41,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/carts/historytransaction/:address",
+      "handler": "cart.historyTransactionOfUser",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/carts",
       "handler": "cart.create",
